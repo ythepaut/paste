@@ -1,15 +1,11 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
     selector: "app-code-area",
     templateUrl: "./code-area.component.html",
 })
-export class CodeAreaComponent implements OnInit {
+export class CodeAreaComponent {
 
     constructor() {
     }
-
-    ngOnInit(): void {
-    }
-
 }

@@ -20,7 +20,8 @@ module.exports = {
             }
         },
         fontSize: {
-            "md": "13px"
+            "md": "13px",
+            "xl": "22px"
         },
         extend: {
             padding: {

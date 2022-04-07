@@ -2,7 +2,10 @@
     <div class="p-2 bg-background-dark-light">
         <img src="assets/logo.png" alt="logo" />
     </div>
-    <div class="px-2 py-1 bg-background-dark-lighter text-txt-dark text-center">
-        Work in progress
+    <div class="px-2 py-1 space-x-5 bg-background-dark-lighter text-center text-xl">
+        <app-button *ngFor="let button of buttons"
+                    [icon]="button.icon"
+                    [clickCallback]="button.clickCallback">
+        </app-button>
     </div>
 </div>
