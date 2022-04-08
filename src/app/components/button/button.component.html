@@ -1,3 +1,7 @@
-<button (click)="clickCallback($event)" class="text-txt-dark hover:text-white transition">
+<button
+    (click)="clickCallback($event)"
+    (mouseenter)="hoverCallback($event)"
+    (mouseleave)="leaveCallback($event)"
+    class="text-txt-dark hover:text-white transition">
     <fa-icon [icon]="icon"></fa-icon>
 </button>

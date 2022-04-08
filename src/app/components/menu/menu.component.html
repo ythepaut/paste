@@ -1,11 +1,26 @@
 <div class="absolute top-0 right-0 w-56">
     <div class="p-2 bg-background-dark-light">
-        <img src="assets/logo.png" alt="logo" />
+        <a href="#">
+            <img src="assets/logo.png" alt="logo" />
+        </a>
     </div>
     <div class="px-2 py-1 space-x-5 bg-background-dark-lighter text-center text-xl">
         <app-button *ngFor="let button of buttons"
                     [icon]="button.icon"
-                    [clickCallback]="button.clickCallback">
+                    [clickCallback]="button.clickCallback"
+                    [hoverCallback]="button.hoverCallback"
+                    [leaveCallback]="button.leaveCallback"
+        >
         </app-button>
+    </div>
+    <div *ngIf="hoverHint !== null" class="px-2 py-1 bg-background-dark-lighter text-white">
+        <span class="text-lg space-x-2">
+            <span class="font-medium">{{hoverHint.title}}</span>
+            <code class="font-mono font-extralight italic text-md">{{hoverHint.shortcut}}</code>
+        </span>
+        <br />
+        <span class="text-md">
+            {{hoverHint.description}}
+        </span>
     </div>
 </div>
