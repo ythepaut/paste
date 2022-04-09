@@ -1,6 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {faSave} from "@fortawesome/free-solid-svg-icons";
 import {IconProp} from "@fortawesome/fontawesome-svg-core";
+import {PasteService} from "../../services/paste.service";
 
 interface HoverHint {
     title: string;
@@ -26,7 +27,7 @@ export class MenuComponent {
         {
             name: "Save",
             icon: faSave,
-            clickCallback: () => {alert("Work in progress : Save")},
+            clickCallback: () => this._pasteService.save(),
             hoverCallback: () => {
                 this._hoverHint = {
                     title: "Save",
@@ -41,7 +42,10 @@ export class MenuComponent {
     @Input()
     private _hoverHint: HoverHint | null = null;
 
-    constructor() {
+    @Input()
+    saveCallback: () => void;
+
+    constructor(private _pasteService: PasteService) {
     }
 
     public get hoverHint(): HoverHint | null {

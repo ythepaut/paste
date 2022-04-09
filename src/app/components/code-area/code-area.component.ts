@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {PasteService} from "../../services/paste.service";
 
 @Component({
     selector: "app-code-area",
@@ -6,6 +7,12 @@ import {Component} from '@angular/core';
 })
 export class CodeAreaComponent {
 
-    constructor() {
+    public paste: string = "";
+
+    constructor(private _pasteService: PasteService) {
+    }
+
+    public handleEdit(): void {
+        this._pasteService.value = this.paste;
     }
 }

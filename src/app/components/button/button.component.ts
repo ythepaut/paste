@@ -7,10 +7,14 @@ import {IconProp} from "@fortawesome/fontawesome-svg-core";
 })
 export class ButtonComponent {
 
-    @Input() icon: IconProp;
-    @Input() clickCallback: (e: MouseEvent) => void;
-    @Input() hoverCallback: (e: MouseEvent) => void;
-    @Input() leaveCallback: (e: MouseEvent) => void;
+    @Input()
+    icon: IconProp;
+    @Input()
+    clickCallback: (e: MouseEvent) => void;
+    @Input()
+    hoverCallback: (e: MouseEvent) => void;
+    @Input()
+    leaveCallback: (e: MouseEvent) => void;
 
     constructor() {
     }

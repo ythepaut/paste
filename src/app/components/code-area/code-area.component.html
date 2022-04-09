@@ -2,7 +2,10 @@
     >
 </div>
 <textarea
+    [(ngModel)]="paste"
+    (keyup)="handleEdit()"
     spellcheck="false"
     autofocus
     class="w-full h-full my-0 p-0 border-0 outline-none resize-none bg-transparent text-white font-mono text-md">
 </textarea>
+<app-menu></app-menu>

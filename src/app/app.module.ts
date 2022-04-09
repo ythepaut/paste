@@ -6,6 +6,8 @@ import {CodeAreaComponent} from './components/code-area/code-area.component';
 import {MenuComponent} from "./components/menu/menu.component";
 import {ButtonComponent} from "./components/button/button.component";
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import {FormsModule} from "@angular/forms";
+import {PasteService} from "./services/paste.service";
 
 @NgModule({
     declarations: [
@@ -16,9 +18,10 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
     ],
     imports: [
         BrowserModule,
-        FontAwesomeModule
+        FontAwesomeModule,
+        FormsModule
     ],
-    providers: [],
+    providers: [PasteService],
     bootstrap: [AppComponent]
 })
 export class AppModule {
