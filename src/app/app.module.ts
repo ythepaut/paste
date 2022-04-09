@@ -6,8 +6,11 @@ import {CodeAreaComponent} from './components/code-area/code-area.component';
 import {MenuComponent} from "./components/menu/menu.component";
 import {ButtonComponent} from "./components/button/button.component";
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
-import {FormsModule} from "@angular/forms";
 import {PasteService} from "./services/paste.service";
+import {AngularFireModule} from "@angular/fire/compat";
+import {AngularFireDatabaseModule} from "@angular/fire/compat/database";
+import {environment} from "../environments/environment";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
     declarations: [
@@ -17,6 +20,8 @@ import {PasteService} from "./services/paste.service";
         ButtonComponent
     ],
     imports: [
+        AngularFireModule.initializeApp(environment.firebase),
+        AngularFireDatabaseModule,
         BrowserModule,
         FontAwesomeModule,
         FormsModule
