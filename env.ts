@@ -15,6 +15,8 @@ const environment = {
 const envFile = `export const environment = ${JSON.stringify(environment)};`
 
 const fs = require("fs");
+if (!fs.existsSync("src/environments"))
+    fs.mkdirSync("src/environments");
 fs.writeFile("src/environments/environment.ts", envFile, (err: any) => {
     if (err)
         console.error(`Failed to write environment file.\n${err}`);
