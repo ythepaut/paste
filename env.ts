@@ -1,5 +1,5 @@
 console.info("Writing environment variables...");
-require("dotenv").config()
+require("dotenv").config();
 const environment = {
     production: process.env["PASTE_MODE"] === "production",
     firebase: {
@@ -12,7 +12,7 @@ const environment = {
         appId: process.env["PASTE_FIREBASE_APP_ID"]
     }
 };
-const envFile = `export const environment = ${JSON.stringify(environment)};`
+const envFile = `export const environment = ${JSON.stringify(environment)};`;
 
 const fs = require("fs");
 if (!fs.existsSync("src/environments"))
@@ -21,5 +21,5 @@ fs.writeFile("src/environments/environment.ts", envFile, (err: any) => {
     if (err)
         console.error(`Failed to write environment file.\n${err}`);
     else
-        console.info("Done.")
+        console.info("Done.");
 });
