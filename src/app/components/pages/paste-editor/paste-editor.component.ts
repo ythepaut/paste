@@ -1,11 +1,11 @@
 import {Component} from '@angular/core';
-import {PasteService} from "../../services/paste.service";
+import {PasteService} from "../../../services/paste.service";
 
 @Component({
-    selector: "app-code-area",
-    templateUrl: "./code-area.component.html",
+    selector: "app-paste-editor",
+    templateUrl: "./paste-editor.component.html",
 })
-export class CodeAreaComponent {
+export class PasteEditorComponent {
 
     public paste: string = "";
 

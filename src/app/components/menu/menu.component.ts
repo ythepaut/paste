@@ -2,6 +2,7 @@ import {Component, Input} from '@angular/core';
 import {faSave} from "@fortawesome/free-solid-svg-icons";
 import {IconProp} from "@fortawesome/fontawesome-svg-core";
 import {PasteService} from "../../services/paste.service";
+import {Router} from "@angular/router";
 
 interface HoverHint {
     title: string;
@@ -27,7 +28,11 @@ export class MenuComponent {
         {
             name: "Save",
             icon: faSave,
-            clickCallback: () => this._pasteService.save(),
+            clickCallback: () => {
+                const [id, key] = this._pasteService.save();
+                if (!id || !key) return; // TODO Better error handling and feedback
+                this._router.navigate([`/raw/${id}`], {fragment: key}).then(_ => {});
+            },
             hoverCallback: () => {
                 this._hoverHint = {
                     title: "Save",
@@ -42,10 +47,7 @@ export class MenuComponent {
     @Input()
     private _hoverHint: HoverHint | null = null;
 
-    @Input()
-    saveCallback: () => void;
-
-    constructor(private _pasteService: PasteService) {
+    constructor(private _pasteService: PasteService, private _router: Router) {
     }
 
     public get hoverHint(): HoverHint | null {
